@@ -90,6 +90,11 @@
           "converted_amount": {
             "type": "number",
             "description": "The converted amount in the target currency."
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "description": "The date of the conversion rate used for the calculation."
           }
         }
       },

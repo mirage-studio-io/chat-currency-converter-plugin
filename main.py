@@ -2,6 +2,7 @@ import os
 import quart
 import quart_cors
 from quart import Quart, jsonify, request
+from datetime import date
 
 PORT = 5002
 CONVERSION_RATES = {
@@ -42,7 +43,7 @@ async def convert_currency():
     return jsonify({"error": "Invalid currency pair"}), 400
 
   converted_amount = amount * CONVERSION_RATES[from_currency][to_currency]
-  return jsonify({"converted_amount": converted_amount})
+  return jsonify({"converted_amount": converted_amount, "date": date.today() })
 
 
 def main():
