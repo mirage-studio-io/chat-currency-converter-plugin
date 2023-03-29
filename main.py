@@ -6,16 +6,16 @@ from quart import Quart, jsonify, request
 PORT = 5002
 CONVERSION_RATES = {
   "USD": {
-    "EUR": 0.85,
-    "JPY": 110.0
+    "EUR": 0.92,
+    "JPY": 132.69
   },
   "EUR": {
-    "USD": 1.18,
-    "JPY": 129.0
+    "USD": 1.08,
+    "JPY": 143.83
   },
   "JPY": {
-    "USD": 0.0091,
-    "EUR": 0.0077
+    "USD": 0.0075,
+    "EUR": 0.0070
   },
 }
 # Get authentication key from environment variable
