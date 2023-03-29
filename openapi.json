@@ -1,0 +1,107 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Currency Converter Plugin",
+    "description": "A plugin that allows the user to convert amounts between currencies using ChatGPT.",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://chat-currency-converter-plugin.supportmirage.repl.co"
+    }
+  ],
+  "paths": {
+    "/convert": {
+      "get": {
+        "operationId": "convertCurrency",
+        "summary": "Convert currency",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/convertCurrencyRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/convertCurrencyResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/errorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "convertCurrencyRequest": {
+        "type": "object",
+        "properties": {
+          "from_currency": {
+            "type": "string",
+            "description": "The currency to convert from."
+          },
+          "to_currency": {
+            "type": "string",
+            "description": "The currency to convert to."
+          },
+          "amount": {
+            "type": "number",
+            "description": "The amount to be converted."
+          }
+        },
+        "required": [
+          "from_currency",
+          "to_currency",
+          "amount"
+        ]
+      },
+      "convertCurrencyResponse": {
+        "type": "object",
+        "properties": {
+          "converted_amount": {
+            "type": "number",
+            "description": "The converted amount in the target currency."
+          }
+        }
+      },
+      "errorResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "A description of the error."
+          }
+        }
+      }
+    }
+  }
+}

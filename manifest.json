@@ -1,0 +1,18 @@
+{
+	"schema_version": "v1",
+	"name_for_human": "Currency Converter Plugin (service http)",
+	"name_for_model": "currency_converter",
+	"description_for_human": "Plugin for converting amounts between currencies.",
+	"description_for_model": "Use the Currency Converter plugin to convert amounts between different currencies. Provide the source currency, target currency, and the amount in your query, and the plugin will return the converted amount based on the latest exchange rates. The currency converter works best with clear and concise queries.\nExamples of supported queries include:\n\nUSD to EUR: 'Convert 100 USD to EUR', '100 USD in EUR'\n\nGBP to CAD: 'Convert 50 GBP to CAD', '50 GBP in CAD'\n\nAUD to JPY: 'Convert 25 AUD to JPY', '25 AUD in JPY'",
+	"api": {
+		"type": "openapi",
+		"url": "https://chat-currency-converter-plugin.supportmirage.repl.co/openapi.yaml",
+		"is_user_authenticated": false
+	},
+	"auth": {
+		"type": "none"
+	},
+	"logo_url": "https://chat-currency-converter-plugin.supportmirage.repl.co/logo.png",
+	"contact_email": "support@mirage-studio.io",
+	"legal_info_url": "https://www.mirage-studio.io"
+}

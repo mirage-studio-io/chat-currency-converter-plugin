@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "chat-currency-converter-plugin"
+version = "0.1.0"
+description = "ChatGPT Plugin for converting amounts between currencies"
+authors = ["mirage-studio <support@mirage-studio.io"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+openai = "^0.27.2"
+flask = "^2.2.3"
+replit = "^3.2.5"
+quart = "^0.18.3"
+quart-cors = "^0.6.0"
+aiohttp = "3.8.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
