@@ -33,17 +33,40 @@ app = quart_cors.cors(Quart(__name__),
 # Add a route to convert currency
 @app.route("/convert", methods=["GET"])
 async def convert_currency():
-  request_data = await request.get_json()
-  from_currency = request_data.get("from_currency")
-  to_currency = request_data.get("to_currency")
-  amount = float(request_data.get("amount"))
+  from_currency = request.args.get("from_currency")
+  to_currency = request.args.get("to_currency")
+  amount = float(request.args.get("amount"))
 
   if from_currency not in CONVERSION_RATES or to_currency not in CONVERSION_RATES[
       from_currency]:
     return jsonify({"error": "Invalid currency pair"}), 400
 
   converted_amount = amount * CONVERSION_RATES[from_currency][to_currency]
-  return jsonify({"converted_amount": converted_amount, "date": date.today() })
+  return jsonify({"converted_amount": converted_amount, "date": date.today()})
+
+
+@app.get("/logo.png")
+async def plugin_logo():
+  filename = 'logo.png'
+  return await quart.send_file(filename, mimetype='image/png')
+
+
+@app.get("/.well-known/ai-plugin.json")
+async def plugin_manifest():
+  host = request.headers['Host']
+  with open("manifest.json") as f:
+    text = f.read()
+    text = text.replace("PLUGIN_HOSTNAME", f"https://{host}")
+    return quart.Response(text, mimetype="text/json")
+
+
+@app.get("/openapi.json")
+async def openapi_spec_json():
+  host = request.headers['Host']
+  with open("openapi.json") as f:
+    text = f.read()
+    text = text.replace("PLUGIN_HOSTNAME", f"https://{host}")
+    return quart.Response(text, mimetype="text/json")
 
 
 def main():

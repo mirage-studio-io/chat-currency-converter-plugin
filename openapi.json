@@ -15,16 +15,35 @@
       "get": {
         "operationId": "convertCurrency",
         "summary": "Convert currency",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/convertCurrencyRequest"
-              }
+        "parameters": [
+          {
+            "name": "from_currency",
+            "in": "query",
+            "description": "The currency to convert from.",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           },
-          "required": true
-        },
+          {
+            "name": "to_currency",
+            "in": "query",
+            "description": "The currency to convert to.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "amount",
+            "in": "query",
+            "description": "The amount to be converted.",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
