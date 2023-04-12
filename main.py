@@ -8,15 +8,15 @@ PORT = 5002
 CONVERSION_RATES = {
   "USD": {
     "EUR": 0.92,
-    "JPY": 132.69
+    "JPY": 133.75
   },
   "EUR": {
-    "USD": 1.08,
-    "JPY": 143.83
+    "USD": 1.09,
+    "JPY": 146.11
   },
   "JPY": {
     "USD": 0.0075,
-    "EUR": 0.0070
+    "EUR": 0.0068
   },
 }
 # Get authentication key from environment variable
