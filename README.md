@@ -48,3 +48,6 @@ curl -X GET http://0.0.0.0:5002/convert \
  -H 'Content-Type: application/json' \
  -d '{"from_currency": "USD", "to_currency": "EUR", "amount": 100}'
 ```
+
+
+MIT License - Mirage Studio
